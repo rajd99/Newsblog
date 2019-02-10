@@ -1,0 +1,80 @@
+
+  <div class="card my-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+<%= search_form_for @q  do |f| %>
+  <%= f.label :title_or_description_cont %>
+  <%= f.search_field :title_or_description_cont %>
+  <%= f.submit "Search" %>
+<% end %>
+</div>
+</div>
+</div>
+
+
+<div class="card my-4">
+          <h5 class="card-header">Categories</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <% @category.each do |category| %>
+                      <%= link_to "#{category.name}", category_path(category) %>
+                      <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+<table>
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+<table>
+      <th><%= sort_link(@q, :title) %></th>
+    <% @message.each do |message| %>
+        <h1><%= message.title %></h1>
+        <%= message.description.html_safe %>
+        <%= link_to "Join Chat", message, class:"btn-custom"%>
+
+
+    <%= link_to like_message_path(message), method: :put do %>
+      Upvote
+      <%= message.get_upvotes.size %>
+    <% end %>
+
+    <%= link_to dislike_message_path(message), method: :put do %>
+      Downvote
+      <%= message.get_downvotes.size %>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+
+      <div class="card my-4">
+                <h5 class="card-header">Categories</h5>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <ul class="list-unstyled mb-0">
+                        <li>
+                          <% @category.each do |category| %>
+                            <%= link_to "#{category.name}", category_path(category) %>
+                            <% end %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>

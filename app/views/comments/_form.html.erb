@@ -1,0 +1,16 @@
+
+<!-- Comments Form -->
+
+
+
+<div class="card my-4">
+    <%= simple_form_for ([@message, @message.comments.build]) do |f| %>
+        <h5 class="card-header"><%= f.input :content, label: "LEAVE COMMENT"%></h5>
+        <div class="card-body">
+          <form>
+            </div>
+            <%= f.submit "Submit", class: 'btn btn-primary' %>
+            <% end %>
+          </form>
+        </div>
+      </div>

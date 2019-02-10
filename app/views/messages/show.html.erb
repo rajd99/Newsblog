@@ -1,0 +1,33 @@
+
+<div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4"><%= @message.title %></h1>
+        <hr>
+
+              <!-- Preview Image -->
+
+              <hr>
+
+              <!-- Post Content -->
+              <p class="lead"><%= @message.description.html_safe %></p>
+<p class= "message-posted"><%= time_ago_in_words(@message.created_at) %> Ago </p>
+ <%= link_to "Back", root_path, class: "btn btn-default"%>
+<%= link_to "Edit Message", edit_message_path %>
+<%= link_to "Delete",message_path(@message), method: :delete, data:{confirm: "you wanna do this?"} %>
+
+
+
+
+
+
+
+<h3> COMMENTS </h3>
+
+<p><%= render @message.comments %></p>
+<%= render 'comments/form' %>
